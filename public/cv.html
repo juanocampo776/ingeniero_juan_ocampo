@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículum Vitae - Ing. Juan Pablo Ocampo Zuluaga</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #0f172a;       /* Slate Darkest */
+      --secondary-color: #0284c7;     /* Sky Blue Accent */
+      --accent-blue: #1e40af;         /* Deep Royal Blue */
+      --text-main: #334155;           /* Medium Slate Text */
+      --text-muted: #64748b;          /* Light Slate Text */
+      --border-color: #e2e8f0;        /* Light Border */
+      --bg-light: #f8fafc;            /* Clean tech background */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--primary-color);
+      background-color: var(--bg-light);
+      line-height: 1.5;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cv-page {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Print control header (only visible in browser) */
+    .print-header {
+      background: #f1f5f9;
+      padding: 12px 24px;
+      margin: -48px -48px 36px -48px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .print-btn {
+      background: var(--accent-blue);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.15);
+    }
+
+    .print-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
+    }
+
+    .print-title {
+      font-size: 13px;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* CV Layout - Standard Linear Flow (Strictly ATS Friendly) */
+    
+    /* Header Section */
+    .header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 3px solid var(--secondary-color);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    .header-info h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--primary-color);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .header-info .subtitle {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    /* Contacts - Plain text linear sequence to avoid parsing errors */
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .contact-details a {
+      color: var(--text-main);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-muted);
+      transition: color 0.15s ease;
+    }
+
+    .contact-details a:hover {
+      color: var(--secondary-color);
+      border-bottom-color: var(--secondary-color);
+    }
+
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.9;
+    }
+
+    /* Section styling */
+    .cv-section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-bottom: 1.5px solid var(--border-color);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    .profile-text {
+      font-size: 13px;
+      color: var(--text-main);
+      text-align: justify;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    /* Categorized Competencies List - Highly readable text sequence for ATS */
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .skills-category {
+      font-size: 13px;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .skills-category strong {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    /* Experience Items */
+    .exp-item {
+      margin-bottom: 20px;
+    }
+
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .exp-company {
+      color: var(--primary-color);
+      font-size: 14px;
+    }
+
+    .exp-date {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .exp-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .exp-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--secondary-color);
+      font-style: italic;
+    }
+
+    .exp-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Standard bullet list for achievements */
+    .exp-bullets {
+      list-style-type: disc;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .exp-bullets li {
+      font-size: 12.5px;
+      color: var(--text-main);
+      text-align: justify;
+      line-height: 1.5;
+    }
+
+    .exp-bullets li strong {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    /* Education styling */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 13.5px;
+      margin-bottom: 6px;
+    }
+
+    .edu-title {
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .edu-inst {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .edu-date {
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Print Optimizations */
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .cv-page {
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        max-width: 100%;
+        margin: 0;
+      }
+      
+      .print-header {
+        display: none !important;
+      }
+
+      .section-title {
+        border-bottom-color: #94a3b8;
+      }
+      
+      /* Avoid breaking experience items between pages */
+      .exp-item {
+        page-break-inside: avoid;
+      }
+      
+      .cv-section {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-page">
+    <!-- Printable View Header Controls -->
+    <div class="print-header">
+      <span class="print-title">Documento diseñado linealmente para compatibilidad ATS e impresión a PDF</span>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Imprimir / Guardar PDF
+      </button>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="header-info">
+        <h1>Juan Pablo Ocampo Zuluaga</h1>
+        <div class="subtitle">Ingeniero Industrial | Especialista en Optimización & Analítica de Datos</div>
+        
+        <div class="contact-details">
+          <div class="contact-item">📍 Colombia</div>
+          <div class="contact-item">📞 <a href="tel:+573184316331">+57 318 431 6331</a></div>
+          <div class="contact-item">✉️ <a href="mailto:juanpa_776@hotmail.com">juanpa_776@hotmail.com</a></div>
+          <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/juan-pablo-ocampo-zuluaga-bb001a267/" target="_blank">LinkedIn</a></div>
+          <div class="contact-item">🌐 <a href="https://juanocampo.com/" target="_blank">juanocampo.com</a></div>
+        </div>
+      </div>
+      <div class="logo-container">
+        <!-- Technical branding watermark -->
+        <img src="/src/assets/logo.png" alt="Logo Ing. Juan Ocampo" onerror="this.style.display='none'" />
+      </div>
+    </div>
+
+    <!-- Profile Summary -->
+    <div class="cv-section">
+      <div class="section-title">Perfil Profesional</div>
+      <p class="profile-text">
+        Ingeniero Industrial con sólida experiencia en análisis de datos, inteligencia de negocio y optimización de procesos operativos. Especialista en la transformación de datos operativos y de negocio en decisiones estratégicas de alta rentabilidad utilizando <strong>SQL</strong>, <strong>Python</strong> y <strong>Power BI</strong>.
+      </p>
+      <p class="profile-text">
+        Amplia trayectoria liderando proyectos de estandarización bajo la norma de calidad <strong>ISO 9001</strong>, auditorías internas y control de procesos. Experto en metodologías <strong>Lean Six Sigma</strong> para la erradicación de desperdicios y cuellos de botella en plantas de producción y centros de servicio técnico, incrementando el rendimiento general de los equipos (OEE) y logrando retornos de inversión (ROI) cuantificables.
+      </p>
+    </div>
+
+    <!-- Competencies (ATS Categorized list) -->
+    <div class="cv-section">
+      <div class="section-title">Habilidades y Competencias</div>
+      <div class="skills-list">
+        <div class="skills-category">
+          <strong>Optimización y Mejora Continua:</strong> Lean Manufacturing, Six Sigma (DMAIC), Mapeo de Flujo de Valor (VSM), Kanban, 5S, Teoría de Restricciones (TOC), Análisis de Cuellos de Botella, Estandarización de Procesos (SOP).
+        </div>
+        <div class="skills-category">
+          <strong>Analítica y Business Intelligence (BI):</strong> Python (Pandas, NumPy, Matplotlib), SQL (Consultas relacionales y agregaciones complejas), Power BI, Tableau, Excel Avanzado (Modelos Financieros, Fórmulas, DAX, Power Query).
+        </div>
+        <div class="skills-category">
+          <strong>Sistemas de Gestión y Calidad:</strong> Estructuras Organizacionales, Estandarización de Mapas de Procesos, Norma ISO 9001, Auditorías Internas de Calidad, Diseño de Organigramas.
+        </div>
+        <div class="skills-category">
+          <strong>Operaciones y Cadena de Suministro:</strong> Planificación de la Demanda, Gestión y Control de Inventarios, Logística de Distribución, Indicadores de Gestión Operativos (KPIs) y Gestión de Proyectos Ágiles (Scrum).
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience / Selected Projects -->
+    <div class="cv-section">
+      <div class="section-title">Experiencia Destacada & Casos de Éxito</div>
+      
+      <!-- Imperio Electronic -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Imperio Electronic</span>
+          <span class="exp-date">Junio 2024 - Presente</span>
+        </div>
+        <div class="exp-title-row">
+          <span class="exp-title">Consultor de Ingeniería & Optimización de Procesos</span>
+          <span class="exp-meta">Colombia | Consultoría de Procesos & Tecnología</span>
+        </div>
+        <ul class="exp-bullets">
+          <li><strong>Sistematización del Taller de Reparación:</strong> Diseñé e implementé una bitácora digital de trazabilidad operativa ("historia clínica de dispositivos"), erradicando las brechas de comunicación con los clientes y <strong>reduciendo las quejas en un 90%</strong> al proveer información fluida.</li>
+          <li><strong>Optimización del Tiempo de Ciclo:</strong> Reestructuré el flujo físico del taller bajo principios de flujo continuo y balanceo de carga de trabajo, logrando una <strong>reducción del 35% en el tiempo de ciclo de reparaciones</strong> y minimizando el inventario en proceso (WIP).</li>
+          <li><strong>Transformación Digital con IA:</strong> Lideré el desarrollo del e-commerce corporativo y un asistente de Inteligencia Artificial (IA) omnicanal (WhatsApp y Web) que automatizó la atención primaria, **mejorando el tiempo de respuesta inicial en un 60%**.</li>
+        </ul>
+      </div>
+
+      <!-- JMO Nutrición -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">JMO Nutrición</span>
+          <span class="exp-date">Noviembre 2023 - Mayo 2024</span>
+        </div>
+        <div class="exp-title-row">
+          <span class="exp-title">Consultor en Transformación Digital Operativa</span>
+          <span class="exp-meta">Colombia | Consultoría de Negocios</span>
+        </div>
+        <ul class="exp-bullets">
+          <li><strong>Reestructuración del Modelo de Negocio:</strong> Lideré la transición estratégica de una atención física tradicional a un modelo de negocio híbrido digital con plataforma e-commerce de alto tráfico.</li>
+          <li><strong>Optimización del Embudo de Ventas:</strong> Rediseñé el embudo de captación digital y la logística de distribución de última milla, impulsando un **incremento del 30% en las ventas de la compañía** y una tasa de entregas a tiempo (OTIF) del **98%**.</li>
+          <li><strong>Análisis de Datos e Inventarios:</strong> Utilicé Python y SQL para limpiar y estructurar los datos transaccionales e históricos de la compañía, optimizando la planificación de compras y **disminuyendo la pérdida de existencias por caducidad en un 15%**.</li>
+        </ul>
+      </div>
+
+      <!-- Suntic S.A.S. -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Suntic S.A.S.</span>
+          <span class="exp-date">Marzo 2023 - Octubre 2023</span>
+        </div>
+        <div class="exp-title-row">
+          <span class="exp-title">Especialista en Sistemas de Gestión & Estandarización</span>
+          <span class="exp-meta">Colombia | Consultoría de Calidad</span>
+        </div>
+        <ul class="exp-bullets">
+          <li><strong>Certificación de Calidad ISO 9001:</strong> Encabecé el levantamiento de información y la documentación de la estructura organizacional, mapas de procesos generales e interactivos, asegurando el cumplimiento de la norma **ISO 9001**.</li>
+          <li><strong>Diseño y Estandarización Organizacional:</strong> Diseñé el organigrama oficial de la compañía y los procedimientos estándar de operación (SOP) para todas las áreas operativas clave.</li>
+          <li><strong>Capacitación y Auditoría:</strong> Coordiné auditorías internas de gestión de calidad y diseñé un programa de inducción que **redujo el tiempo de entrenamiento de nuevo personal en un 40%** gracias a diagramas de procesos claros.</li>
+        </ul>
+      </div>
+
+      <!-- Trayectoria Adicional -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Proyectos Independientes de Mejora Operativa</span>
+          <span class="exp-date">Enero 2022 - Febrero 2023</span>
+        </div>
+        <div class="exp-title-row">
+          <span class="exp-title">Ingeniero de Procesos y Operaciones</span>
+          <span class="exp-meta">Colombia | Logística y Manufactura</span>
+        </div>
+        <ul class="exp-bullets">
+          <li><strong>Aumento de Eficiencia Operativa (OEE):</strong> Apliqué metodologías Lean Six Sigma (DMAIC) para balancear líneas de producción industrial, aumentando el **OEE promedio del 73.6% al 95.0%**.</li>
+          <li><strong>Simulaciones Financieras de Procesos:</strong> Programé simuladores interactivos de flujo de procesos para calcular el retorno financiero (ROI) derivado de la erradicación de cuellos de botella, proyectando **ahorros de hasta $7,200 USD mensuales** por línea optimizada.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="cv-section">
+      <div class="section-title">Educación</div>
+      <div class="edu-item">
+        <div>
+          <span class="edu-title">Ingeniería Industrial</span>
+          <span class="edu-inst">- Especialización en Análisis de Datos & Operaciones</span>
+        </div>
+        <span class="edu-date">Graduado</span>
+      </div>
+      <div class="edu-item">
+        <div>
+          <span class="edu-title">Certificaciones Continuas:</span>
+          <span class="edu-inst">Visualización en Power BI (Microsoft), Análisis de Datos con SQL y Python (Coursera)</span>
+        </div>
+        <span class="edu-date">Vigentes</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
